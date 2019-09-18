@@ -87,7 +87,7 @@ DATABASES = {
         'NAME': 'mycmdb',
         'USER': 'root',
         'PASSWORD': 'root',
-        'HOST': '192.168.1.2',
+        'HOST': 'localhost',
         'PORT': '3306',
     }
 }
