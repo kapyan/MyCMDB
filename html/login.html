@@ -1,0 +1,48 @@
+<!DOCTYPE html >
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>MyCMDB-登录</title>
+  <link rel="stylesheet" href="static/layui/css/layui.css">
+  <link rel="stylesheet" href="static/css/login.css">
+  <link rel="shortcut icon" href="static/images/favicon.ico" />
+</head>
+<body bgcolor="#2F4056">
+ <div class="login layui-anim layui-anim-up">
+        <div class="message">MyCMDB-登录</div>
+        <div id="darkbannerwrap"></div>
+        <form method="post" class="layui-form" >
+            <input name="username" placeholder="用户名"  type="text" lay-verify="required" lay-reqText="用户不能为空！" lass="layui-input" >
+            <hr class="hr15">
+            <input name="password" lay-verify="required" lay-reqText="密码不能为空！" placeholder="密码"  type="password" class="layui-input">
+            <hr class="hr15">
+            <input value="登录" lay-submit lay-filter="login" style="width:100%;" type="submit">
+            <hr class="hr20" >
+        </form>
+    </div>
+
+<script src="static/layui/layui.js"></script>
+<script>
+layui.use(['form','jquery'], function(){
+  var $ = layui.$
+  var form = layui.form;
+  layui.data('api', {key: 'url',value: "http://192.168.1.80:8000/api/"});
+  var api =  layui.data('api').url;
+  //监听提交
+  form.on('submit(login)', function(data){
+    $.post(api+"login", data.field, function(data, textStatus, xhr) {
+      /*optional stuff to do after success */
+      var data = $.parseJSON(data);
+      if (data.status == "success") {
+        layui.data('user', {key: 'userinfo',value: data.userinfo});
+        location.href='/';
+      }else
+        layer.msg("登录失败，"+ data.msg);
+    });
+    return false;
+  });
+});
+</script>
+</body>
+</html>

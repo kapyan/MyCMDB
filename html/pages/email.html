@@ -1,0 +1,68 @@
+<link rel="stylesheet" href="/static/layui/css/layui.css"  media="all">
+<link rel="stylesheet" href="/static/fontAwesome/css/font-awesome.min.css">
+
+<div style="padding: 20px; background-color: #F2F2F2;">
+  <div class="layui-row layui-col-space15">
+    <div class="layui-col-md12">
+      <div class="layui-card">
+        <div class="layui-card-header" style="margin:10px 0">
+          <span class="layui-breadcrumb">
+            <a>首页</a>
+            <a>邮件</a>
+          </span>
+          <a id="refresh" href="javascript:;" style="position: absolute;right: 60px;"><i  class="layui-icon layui-icon-refresh"></i></a>
+        </div>
+        <!-- <div class="layui-card-body" style="background-color: #F2F2F2;"> -->
+		  <div class="layui-col-xs2">
+    	    <div class="layui-card" style="margin:0 10px">
+    	      <div class="layui-card-header layui-bg-cyan">收件箱</div>
+    	      <div class="layui-card-body">
+    	        <ul id="indox">
+				   <li class="layui-nav-item" style="line-height:2"><a class="folder" id="unread" href="javascript:;"><i class="fa fa-folder" aria-hidden="true"> </i> 未读邮件</a></li>
+  			    </ul>
+    	      </div>
+    	    </div>
+    	  </div>
+    	  <div class="layui-col-xs10">
+    	    <div class="layui-card">
+    	      <div class="layui-card-header head-folder">未读邮件</div>
+    	      <div class="layui-card-body">
+    	        <div class="layui-col">
+    	          <table class="layui-hide" id="emails" lay-filter="emails">
+    	          </table>
+    	        </div>
+    	        <script type="text/html" id="makremail">
+				  <div class="layui-btn-container">
+				    <button class="layui-btn layui-btn-sm" lay-event="markread">标记为已读</button>
+				  </div>
+				</script>
+				<script type="text/html" id="showcontext">
+				  <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="detail">查看</a>
+				</script>
+    	      </div>
+    	    </div>
+    	  </div>
+        </div>
+	  </div>
+   </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="../static/layui/layui.js" charset="utf-8"></script>
+<script src="../static/js/email.js" charset="utf-8"></script>
+
+
+
+

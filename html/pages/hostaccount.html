@@ -1,0 +1,58 @@
+<link rel="stylesheet" href="/static/layui/css/layui.css"  media="all">
+<link rel="stylesheet" href="/static/lib/formSelects-v4/formSelects-v4.css"/>
+<link rel="stylesheet" href="/static/lib/inputTags/inputTags.css"/>
+<link rel="stylesheet" href="/static/fontAwesome/css/font-awesome.min.css"/>
+
+<div style="padding: 20px; background-color: #F2F2F2;">
+  <div class="layui-row layui-col-space15">
+    <div class="layui-col-md12">
+      <div class="layui-card">
+        <div class="layui-card-header">
+		      <span class="layui-breadcrumb">
+            <a>首页</a>
+            <a>资产管理</a>
+            <a>账号管理</a>
+          </span>
+          <a id="refresh" href="javascript:;" style="position: absolute;right: 60px;"><i  class="layui-icon layui-icon-refresh"></i></a>
+        </div>
+        <div class="layui-card-body" style="height: 87%;">
+          <br>
+          <div class="layui-row">
+            <div class="layui-col-md3 layui-col-md-offset1"  style="position: fixed">
+                <button class="layui-btn newaccount">创建账号</button>
+            </div>
+			  	  <div class="layui-col-md9 layui-col-md-offset6" >
+			  	  	<form class="layui-form" action="" lay-filter="searchhost">
+  					    <div class="layui-form-item">
+  						    <div class="layui-inline">
+  						      <div class="layui-input-inline">
+  						        <input class="layui-input" name="text"  autocomplete="off" required lay-verify="required" lay-verType="tips" lay-reqText="请输入查询关键字" placeholder="输入ip或域名">
+  						      </div>
+  						      <button class="layui-btn"  lay-submit="" lay-filter="searchaccount">搜索</button>
+  						    </div>
+  						  </div>
+					    </form>
+            </div>
+			  	</div>
+          <hr class="layui-bg-green">
+				  <div class="layui-row">
+				    <div class="layui-col-md10 accounts layui-col-md-offset1">
+				  	  <table class="layui-hide" id="accounts" lay-filter="accounts"></table>
+				  	  <script type="text/html" id="accounttoolbar">
+					        <div class="layui-btn-container">
+                     <button class="layui-btn layui-btn-sm layui-btn-danger" lay-event="delih">仅删除关联主机</button>
+					           <button class="layui-btn layui-btn-sm layui-btn-danger" lay-event="delah">删除账号及关联</button>
+					        </div>
+					    </script>
+				    </div>
+				  </div>
+			   </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script src="/static/layui/layui.js"></script>
+<script src="/static/js/hostaccount.js"></script>
+

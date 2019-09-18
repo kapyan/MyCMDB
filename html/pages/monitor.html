@@ -1,0 +1,99 @@
+<link rel="stylesheet" href="/static/layui/css/layui.css"  media="all">
+<link rel="stylesheet" href="/static/lib/dtree/dtree.css">
+<link rel="stylesheet" href="/static/lib/dtree/font/dtreefont.css">
+
+
+<div style="padding: 20px; background-color: #F2F2F2;">
+  <div class="layui-row layui-col-space15">
+    <div class="layui-col-md12">
+      <div class="layui-card">
+        <div class="layui-card-header">
+		  <span class="layui-breadcrumb">
+            <a>首页</a>
+            <a>监控</a>
+          </span>
+          <a id="refresh" href="javascript:;" style="position: absolute;right: 60px;"><i  class="layui-icon layui-icon-refresh"></i></a>
+        </div>
+        <div class="layui-card-body" style="height: 87%;">
+          <div class="layui-row">
+  		    <div class="layui-col-xs2" style="weight: 25%; position: absolute;top:50px;">
+  		      <div>
+  		      	<div class="layui-input-inline">
+				  <input class="layui-input" id="searchInput" value="" placeholder="查询主机..." style="height: 30px;width: 160px" >
+				</div>
+				<div class="layui-input-inline">
+				  <a href="javascipts:;"><i id="search_btn" class="layui-icon layui-icon-search"></i></a>
+				</div>
+  				<div id="hosttree" class="dtree" data-id="0"></div>
+			  </div>
+  		    </div>
+  		    <div class="layui-col-xs10 layui-col-md-offset2">
+    		  <div class="layui-card">
+    		    <div class="layui-card-header" >
+					<div class="layui-col-md3 hostinfo" id="">
+					</div>
+    		    	<div class="layui-col-md9 dateselect" style="position: absolute;right: 20px;">
+ 						<!-- <form class="layui-form layui-form-pane" action="">
+ 							<div class="layui-form-item layui-col-md5" style="position: absolute;right: 10px;">
+ 								<label class="layui-form-label">选择时间：</label>
+ 								<div class="layui-input-block">
+ 									<input type="text" class="layui-input" id="time" placeholder="开始时间至结束时间">
+ 								</div>
+ 							</div>
+ 						</form> -->
+    		    	</div>
+
+    		    </div>
+    		    <div class="layui-card-body" style="background-color: #F2F2F2;height: 90%">
+    		    	<div class="layui-row layui-col-space15">
+						<div class="layui-col-md6">
+    					  <div class="layui-card">
+    					    <div class="layui-card-header layui-bg-blue">内存</div>
+    					    <div class="layui-card-body">
+    					      <div id="memory" style="height: 35%;"></div>
+    					    </div>
+    					  </div>
+    					</div>
+						<div class="layui-col-md6">
+    					  <div class="layui-card">
+    					    <div class="layui-card-header layui-bg-cyan">CPU</div>
+    					    <div class="layui-card-body">
+    					      <div id="cpu" style="height: 35%;"></div>
+    					    </div>
+    					  </div>
+    					</div>
+    					<div class="layui-col-md6">
+    					  <div class="layui-card">
+    					    <div class="layui-card-header layui-bg-red">磁盘</div>
+    					    <div class="layui-card-body">
+    					      <div id="disk" style="height: 44%;"></div>
+    					    </div>
+    					  </div>
+    					</div>
+    					<div class="layui-col-md6">
+    					  <div class="layui-card">
+    					    <div class="layui-card-header layui-bg-orange">网络</div>
+    					    <div class="layui-card-body">
+    					      <div id="incomming" style="height:22%"></div>
+                        	  <div id="outgoing" style="height:22%"></div>
+    					    </div>
+    					  </div>
+    					</div>
+					</div>
+
+    		    </div>
+    		  </div>
+			</div>
+  		  </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="../static/layui/layui.js" charset="utf-8"></script>
+<script src="../static/lib/echarts/echarts.min.js"></script>
+<script src="../static/lib/echarts/macarons.js"></script>
+<script src="../static/lib/echarts/shine.js"></script>
+<script src="../static/lib/echarts/roma.js"></script>
+<script src="../static/js/monitor.js"></script>

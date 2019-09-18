@@ -1,0 +1,179 @@
+<link rel="stylesheet" href="/static/layui/css/layui.css"  media="all">
+<link rel="stylesheet" href="/static/lib/formSelects-v4/formSelects-v4.css" />
+
+<div style="padding: 20px; background-color: #F2F2F2;">
+  <div class="layui-row layui-col-space15">
+    <div class="layui-col-md12">
+      <div class="layui-card">
+        <div class="layui-card-header">
+          <span class="layui-breadcrumb">
+            <a>首页</a>
+            <a>设置</a>
+          </span>
+          <a id="refresh" href="javascript:;" style="position: absolute;right: 60px;"><i  class="layui-icon layui-icon-refresh"></i></a>
+        </div>
+        <div class="layui-card-body">
+            <div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
+              <ul class="layui-tab-title">
+                <li class="layui-this">用户信息</li>
+                <li>zabbix配置</li>
+                <li>邮件配置</li>
+              </ul>
+              <div class="layui-tab-content" style="height: 600px;">
+                <!--用户设置-->
+                <div class="layui-tab-item layui-show">
+                  <div class="layui-col-md5 layui-col-md-offset3">
+                    <br><br>
+                    <form class="layui-form" action="" lay-filter="user">
+                      <div class="layui-form-item">
+                        <label class="layui-form-label">头像：</label>
+                        <div class="layui-input-block">
+                          <!-- <img src="" alt="头像" class="user-avatar layui-circle"> -->
+                          <img class="layui-upload-img" id="user-avatar">&nbsp;&nbsp;
+                          <button type="button" class="layui-btn layui-btn-xs layui-btn-normal" id="upload-avatar">上传头像</button>
+                        </div>
+                      </div>
+                      <div class="layui-form-item layui-hide">
+                          <input type="text" name="oldusername" class="layui-input">
+                      </div>
+                      <div class="layui-form-item">
+                        <label class="layui-form-label">用户名：</label>
+                        <div class="layui-input-block">
+                          <input type="text" name="username" autocomplete="off" placeholder="请输入用户名" class="layui-input"  required lay-verify="required|username" lay-verType="tips" lay-reqText="请填写用户名">
+                        </div>
+                      </div>
+                      <div class="layui-form-item">
+                        <label class="layui-form-label">修改密码：</label>
+                        <div class="layui-input-block">
+                          <input type="checkbox" name="isupdatepw" lay-skin="switch" lay-text="是|否" lay-filter="is_updatepw">
+                        </div>
+                      </div>
+                      <div class="layui-form-item password">
+                      </div>
+                      <div class="layui-form-item repassword">
+                      </div>
+                      <div class="layui-form-item layui-form-text">
+                        <label class="layui-form-label">描述：</label>
+                        <div class="layui-input-block">
+                          <textarea placeholder="请输入内容" class="layui-textarea" name="desc"  required  lay-verType="tips" lay-verify="required" lay-reqText="请填写描述信息"></textarea>
+                        </div>
+                      </div>
+
+                      <div class="layui-form-item">
+                        <div class="layui-input-block">
+                          <button class="layui-btn" lay-submit="" lay-filter="userupdate">修改</button>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+                <!--end-->
+                <!--zabbix设置-->
+                <div class="layui-tab-item">
+                  <div class="layui-col-md4 layui-col-md-offset3">
+                     <br><br>
+                    <form class="layui-form" action="" lay-filter="zabbix">
+                      <div class="layui-form-item layui-hide">
+                          <input type="text" name="setting" class="layui-input" value="zabbix">
+                      </div>
+                      <div class="layui-form-item">
+                        <label class="layui-form-label">服务地址：</label>
+                        <div class="layui-input-block">
+                          <input type="text" name="url" autocomplete="off" placeholder="请输入zabbix服务地址" class="layui-input"  required lay-verify="required|url" lay-verType="tips" lay-reqText="请填写zabbix服务地址">
+                        </div>
+                      </div>
+                      <div class="layui-form-item">
+                        <label class="layui-form-label">用户名：</label>
+                        <div class="layui-input-block">
+                          <input type="text" name="username" autocomplete="off" placeholder="请输入zabbix用户名" class="layui-input"  required lay-verify="required" lay-verType="tips" lay-reqText="请填写zabbix用户名">
+                        </div>
+                      </div>
+                      <div class="layui-form-item">
+                        <label class="layui-form-label">密码：</label>
+                        <div class="layui-input-block">
+                          <input type="password" name="password" autocomplete="off" placeholder="请输入zabbix密码" class="layui-input"  required lay-verify="required" lay-verType="tips" lay-reqText="请填写zabbix密码">
+                          <small>tips: 请测试zabbix连接正常后再保存！</small>
+                        </div>
+                      </div>
+
+
+                      <div class="layui-form-item">
+                        <div class="layui-input-block">
+                          <button id="zb_save"  class="layui-btn layui-disabled" disabled lay-submit="" lay-filter="zabbix_save">保存</button>
+                          <button class="layui-btn layui-btn-danger" lay-submit="" lay-filter="zabbix_test">测试</button>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+                <!--zabbix end-->
+                <!--email设置-->
+                <div class="layui-tab-item">
+                  <div class="layui-col-md4 layui-col-md-offset3">
+                     <br><br>
+                    <form class="layui-form" action="" lay-filter="email">
+                      <div class="layui-form-item layui-hide">
+                          <input type="text" name="setting" class="layui-input" value="email">
+                      </div>
+                      <div class="layui-form-item">
+                          <label class="layui-form-label">IMAP地址：</label>
+                          <div class="layui-input-block">
+                            <input type="text" name="imap_url" autocomplete="off" placeholder="  请输入imap服务地址" class="layui-input"  required lay-verify="required" lay-verType="tips" lay-reqText="请填写imap服务地址">
+                          </div>
+                        </div>
+                      <div class="layui-form-item">
+                        <div class="layui-inline">
+                          <label class="layui-form-label">端口号：</label>
+                          <div class="layui-input-inline" style="width: 50px;">
+                            <input type="text" name="imap_port" id="imapport" autocomplete="off" placeholder="  请输入imap服务端口号" class="layui-input"  required lay-verify=" required|number" lay-verType="tips" lay-reqText="请输入imap服务端口号" value="143">
+                          </div>
+                        </div>
+                        <div class="layui-inline">
+                          <div class="layui-input-inline">
+                            <input type="checkbox" name="imap_ssl" title="ssl" id="isssl" lay-filter="is_ssl">
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="layui-form-item">
+                        <label class="layui-form-label">邮箱：</label>
+                        <div class="layui-input-block">
+                          <input type="text" name="email" autocomplete="off" placeholder="请输入邮箱账号" class="layui-input"  required lay-verify="required|email" lay-verType="tips" lay-reqText="请填写邮箱账号">
+                        </div>
+                      </div>
+                      <div class="layui-form-item">
+                        <label class="layui-form-label">密码：</label>
+                        <div class="layui-input-block">
+                          <input type="password" name="emailpwd" autocomplete="off" placeholder="请输入邮箱密码" class="layui-input"  required lay-verify="required" lay-verType="tips" lay-reqText="请填写邮箱密码">
+                        </div>
+                      </div>
+                      <div class="layui-form-item">
+                        <label class="layui-form-label">文件夹：</label>
+                        <div class="layui-input-block">
+                          <select name="em_folder" xm-select="selectfolder" xm-select-skin="normal">
+                          </select>
+                          <small>tips: 请先测试email连接正常，选择文件夹后再保存！</small>
+                        </div>
+                      </div>
+
+
+                      <div class="layui-form-item">
+                        <div class="layui-input-block">
+                          <button id="em_save"  class="layui-btn layui-disabled" disabled lay-submit="" lay-filter="email_save">保存</button>
+                          <button class="layui-btn layui-btn-danger"  lay-submit="" lay-filter="email_test">测试</button>
+                        </div>
+                      </div>
+                    </form>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="../static/layui/layui.js" charset="utf-8"></script>
+<script src="../static/js/setting.js"></script>

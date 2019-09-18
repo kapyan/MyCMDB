@@ -1,0 +1,10 @@
+.left-menu{
+	position: relative ;
+	left: 170px;
+	height: 30px;
+	vertical-align: middle;
+	display: table-cell;
+}
+
+
+li.book-mark{margin:0 8px}

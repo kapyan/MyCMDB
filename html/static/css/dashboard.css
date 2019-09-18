@@ -1,0 +1,40 @@
+.book-mark{
+	position:relative;
+	background:rgba(0,191,255,0.5);
+	color: #FFFFFF;
+	margin-left: 8px;
+	margin-right: 8px;
+	margin-top: 8px;
+	margin-bottom: 8px;
+	text-align: center;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+	height: 80px;
+	padding: 20px 20px;
+}
+.bookmark-icon{
+	font-size: 2em;
+}
+.layui-icon-link {
+	color: #fff;
+	position: absolute;
+	right: 20px;
+	bottom: 10px;
+	font-size: 0.5em;
+}
+.layui-icon-link:hover {
+color:black;
+}
+.del-bookmark{
+	position: absolute;
+	right: 20px;
+	top: 8px;
+	color: #f2f2f2;
+}
+.del-bookmark:hover
+{
+color:red;
+}
