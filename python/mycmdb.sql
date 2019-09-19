@@ -5,7 +5,7 @@
  Source Server Type    : MySQL
  Source Server Version : 50562
  Source Host           : 127.0.0.1:3306
- Source Schema         : tt
+ Source Schema         : mycmdb
 
  Target Server Type    : MySQL
  Target Server Version : 50562
