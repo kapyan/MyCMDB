@@ -20,6 +20,37 @@ pip3 install -r requriment.txt
 ```
 ### 运行webssh
 ```bash
-wssh --address=127.0.0.1 --port=8888
+nohup wssh --address=127.0.0.1 --port=8888 >>wssh.nohup &
 ```
+### 运行python代码
+nohup python3 manage.py runserver >>cmdb.nohup &
+### 修改api地址
+将html/login.html中的`layui.data('api', {key: 'url',value: "http://192.168.1.80:8000/api/"});`的value改为服务器或域名
+### 配置nginx
+```bash
+server {
+    listen       80;
+    server_name  localhost; #域名
 
+    #charset utf8;  
+    #access_log  /var/log/nginx/host.access.log  main;
+
+    location / {
+        root  /opt/mycmdbweb;   #html代码路径
+        index  index.html index.htm;
+    }
+    location /api/ {
+        proxy_pass  http://127.0.0.1:8000;
+    }
+    location /ssh/ {
+        proxy_pass http://127.0.0.1:8888/;
+        proxy_http_version 1.1;
+        proxy_read_timeout 300;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection "upgrade";
+        proxy_set_header Host $http_host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Real-PORT $remote_port;
+    }
+}
+```
