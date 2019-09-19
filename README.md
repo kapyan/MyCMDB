@@ -5,7 +5,9 @@
 - python3.6+
 - nginx
 - redis
+- mysql5.6
 ## 效果截图
 ![登录页](http://py0u41dsf.bkt.clouddn.com/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20190918175300.png)
 ![主页](http://py0u41dsf.bkt.clouddn.com/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20190918180131.png)
-## 
+## 部署
+
