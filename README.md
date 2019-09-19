@@ -10,7 +10,7 @@
 - mysql5.6
 ## 效果截图
 ![登录页](http://py0u41dsf.bkt.clouddn.com/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20190918175300.png)
-![主页](http://py0u41dsf.bkt.clouddn.com/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20190918180131.png)
+![主页](http://py0u41dsf.bkt.clouddn.com/687474703a2f2f7079307534316473662e626b742e636c6f7564646e2e636f6d2f2545352542452541452545342542462541312545352539422542452545372538392538375f32303139303931383138303133312e706e67.png)
 ## 部署
 将python/mycmdb.sql导入数据库，修改python/mycmdb/settings.py中的mysql配置信息和redis配置信息
 ### 安装依赖模块
