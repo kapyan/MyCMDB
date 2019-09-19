@@ -12,6 +12,7 @@
 ![登录页](http://py0u41dsf.bkt.clouddn.com/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20190918175300.png)
 ![主页](http://py0u41dsf.bkt.clouddn.com/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20190918180131.png)
 ## 部署
+将python/mycmdb.sql导入数据库，修改python/mycmdb/settings.py中的mysql配置信息和redis配置信息
 ### 安装依赖模块
 ```bash
 cd python
