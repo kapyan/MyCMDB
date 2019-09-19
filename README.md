@@ -17,4 +17,8 @@
 cd python
 pip3 install -r requriment.txt
 ```
+### 运行webssh
+```bash
+wssh --address=127.0.0.1 --port=8888
+```
 
